@@ -1,4 +1,4 @@
-package minitienda2;
+package minitienda3;
 
 public class Usuario {
     private int id;                // Identificador único para cada usuario

@@ -1,4 +1,4 @@
-package minitienda2;
+package minitienda3;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

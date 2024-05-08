@@ -7,7 +7,7 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
 <web-app>
     <servlet>
         <servlet-name>ControladorCarrito</servlet-name>
-        <servlet-class>minitienda2.ControladorCarrito</servlet-class>
+        <servlet-class>minitienda3.ControladorCarrito</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -15,31 +15,6 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         <url-pattern>/ControladorCarrito</url-pattern>
     </servlet-mapping>
 
-
-    <servlet>
-        <servlet-name>verCarrito</servlet-name>
-        <servlet-class>minitienda2.verCarrito</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>caja</servlet-name>
-        <servlet-class>minitienda2.caja</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>agregarMusica</servlet-name>
-        <url-pattern>/agregarMusica</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>verCarrito</servlet-name>
-        <url-pattern>/verCarrito</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>caja</servlet-name>
-        <url-pattern>/caja</url-pattern>
-    </servlet-mapping>
 
 </web-app>
 

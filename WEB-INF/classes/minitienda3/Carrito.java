@@ -1,4 +1,4 @@
-package minitienda2;
+package minitienda3;
 
 import java.util.ArrayList;
 import java.util.List;
