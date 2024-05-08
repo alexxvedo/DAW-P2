@@ -74,7 +74,7 @@ public class ControladorCarrito extends HttpServlet {
 
             response.sendRedirect("verCarrito.jsp");
         }
-        else if ("Eliminar Seleccionados".equals(action) && carrito != null) {
+        else if ("eliminar".equals(action) && carrito != null) {
             String[] nombres = request.getParameterValues("productoSeleccionado");
             if (nombres != null) {
                 for (String nombre : nombres) {
@@ -83,12 +83,12 @@ public class ControladorCarrito extends HttpServlet {
             }
             session.setAttribute("carrito", carrito);
             response.sendRedirect("verCarrito.jsp");
-        } else if ("Vaciar Carrito".equals(action)) {
+        } else if ("vaciar".equals(action)) {
             if (carrito != null) {
                 carrito.getItems().clear();
             }
             response.sendRedirect("verCarrito.jsp");
-        } else if ("Comprar".equals(action)){
+        } else if ("comprar".equals(action)){
             response.sendRedirect("verCaja.jsp");
         }
     }
