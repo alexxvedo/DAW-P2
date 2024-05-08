@@ -24,7 +24,7 @@ public class ControladorBD extends HttpServlet {
 
         Carrito carrito = (Carrito) session.getAttribute("carrito");
 
-        String action = request.getParameter("login");
+        String action = request.getParameter("action");
         if(action.equals("login")){
             String usuario = request.getParameter("email");
             String contrasena = request.getParameter("password");
