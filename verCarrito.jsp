@@ -8,7 +8,7 @@
 <body bgcolor="#FDF5E6">
     <center>
         <h1>Carrito de Compras</h1>
-        <form action="/minitienda3/actualizarMusica" method="post">
+        <form action="/minitienda3/ControladorCarrito" method="post">
             <table border="1">
                 <tr>
                     <th>Producto</th>
@@ -28,9 +28,9 @@
                 </c:forEach>
                 <tr>
                     <td colspan="5" align="right">
-                        <input type="submit" name="action" value="Eliminar Seleccionados"/>
-                        <input type="submit" name="action" value="Vaciar Carrito"/>
-                        <input type="button" name="action" value="Comprar"/>
+                        <input type="submit" name="action" value="eliminar"/>
+                        <input type="submit" name="action" value="vaciar"/>
+                        <input type="submit" name="action" value="comprar"/>
                     </td>
                 </tr>
             </table>
