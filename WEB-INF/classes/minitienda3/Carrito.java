@@ -27,4 +27,9 @@ public class Carrito {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    public void vaciarCarrito() {
+        this.items.clear();
+        this.totalPrice = 0;
+    }
 }

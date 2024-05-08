@@ -28,10 +28,34 @@ public class ControladorBD extends HttpServlet {
         if(action.equals("login")){
             String usuario = request.getParameter("email");
             String contrasena = request.getParameter("password");
-            if(UsuarioBD.login(usuario, contrasena)){
-                response.sendRedirect("gracias.jsp");
+            Usuario newUser = UsuarioBD.login(usuario, contrasena);
+            if(newUser != null){
+                Pedido newPedido = PedidoBD.crearPedido(newUser.getId(), carrito.getTotalPrice());
+                if(newPedido != null){
+                    session.setAttribute("pedido", newPedido);
+                    carrito.vaciarCarrito();
+                    response.sendRedirect("gracias.jsp");
+                }
+            }    
+        } 
+        
+        else if(action.equals("registrar")){
+            String usuario = request.getParameter("email");
+            String contrasena = request.getParameter("password");
+            String tipo_tarjeta = request.getParameter("tipo_tarjeta");
+            String numero_tarjeta = request.getParameter("numero_tarjeta");
+            Usuario newUser = UsuarioBD.registrar(usuario, contrasena, tipo_tarjeta, numero_tarjeta);
+
+            if(newUser != null){
+                Pedido newPedido = PedidoBD.crearPedido(newUser.getId(), carrito.getTotalPrice());
+                if(newPedido != null){
+                    session.setAttribute("pedido", newPedido);
+                    carrito.vaciarCarrito();
+                    response.sendRedirect("gracias.jsp");
+                }
             }    
         }
+         
     }
 
     public void destroy() 
