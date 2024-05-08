@@ -15,6 +15,18 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         <url-pattern>/ControladorCarrito</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ControladorBD</servlet-name>
+        <servlet-class>minitienda3.ControladorBD</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ControladorBD</servlet-name>
+        <url-pattern>/ControladorBD</url-pattern>
+    </servlet-mapping>
+
+
+
 
 </web-app>
 

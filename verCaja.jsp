@@ -15,7 +15,7 @@
             <c:set var="total" value="${total + (producto.precio * producto.cantidad)}"/>
         </c:forEach>
         <h2>$<c:out value="${total}" /></h2>
-        <form method="post" action="finalizarCompra.jsp">
+        <form method="post" action="login.jsp">
             <input type="submit" value="Confirmar Compra" />
         </form>
         <a href="verCarrito.jsp">Regresar al carrito</a>
