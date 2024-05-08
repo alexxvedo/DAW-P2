@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/j2ee/dtds/web-app_2_3.dtd">
+
+<web-app>
+    <servlet>
+        <servlet-name>ControladorCarrito</servlet-name>
+        <servlet-class>minitienda2.ControladorCarrito</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ControladorCarrito</servlet-name>
+        <url-pattern>/ControladorCarrito</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>verCarrito</servlet-name>
+        <servlet-class>minitienda2.verCarrito</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>caja</servlet-name>
+        <servlet-class>minitienda2.caja</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>agregarMusica</servlet-name>
+        <url-pattern>/agregarMusica</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>verCarrito</servlet-name>
+        <url-pattern>/verCarrito</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>caja</servlet-name>
+        <url-pattern>/caja</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+
