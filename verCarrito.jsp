@@ -8,7 +8,7 @@
 <body bgcolor="#FDF5E6">
     <center>
         <h1>Carrito de Compras</h1>
-        <form action="/minitienda3/ControladorCarrito" method="post">
+        <form action="/minitienda3/FrontControllerServlet" method="post">
             <table border="1">
                 <tr>
                     <th>Producto</th>

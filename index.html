@@ -17,7 +17,7 @@
       <form
         name="musicaForm"
         method="get"
-        action="/minitienda3/ControladorCarrito"
+        action="/minitienda3/FrontControllerServlet"
       >
         <b>CD:</b>
         <select name="nombreMusica">
@@ -38,6 +38,11 @@
         <input type="text" name="cantidadMusica" value="1" />
         <p>
           <input type="submit" value="Agregar" name="action" />
+        </p>
+        <p>
+          <a class="btn" href="verCarrito.jsp">
+            Carrito
+          </a>
         </p>
       </form>
     </center>

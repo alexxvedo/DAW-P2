@@ -5,27 +5,15 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
 "http://java.sun.com/j2ee/dtds/web-app_2_3.dtd">
 
 <web-app>
-    <servlet>
-        <servlet-name>ControladorCarrito</servlet-name>
-        <servlet-class>minitienda3.ControladorCarrito</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ControladorCarrito</servlet-name>
-        <url-pattern>/ControladorCarrito</url-pattern>
-    </servlet-mapping>
 
     <servlet>
-        <servlet-name>ControladorBD</servlet-name>
-        <servlet-class>minitienda3.ControladorBD</servlet-class>
+        <servlet-name>FrontControllerServlet</servlet-name>
+        <servlet-class>minitienda3.FrontControllerServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
-        <servlet-name>ControladorBD</servlet-name>
-        <url-pattern>/ControladorBD</url-pattern>
+        <servlet-name>FrontControllerServlet</servlet-name>
+        <url-pattern>/FrontControllerServlet</url-pattern>
     </servlet-mapping>
-
-
 
 
 </web-app>
