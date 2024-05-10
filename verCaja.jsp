@@ -10,10 +10,8 @@
 <body bgcolor="#FDF5E6">
     <center>
         <h1>Total a Pagar</h1>
-        <c:set var="total" value="0" scope="page" />
-        <c:forEach items="${sessionScope.carrito.items}" var="producto">
-            <c:set var="total" value="${total + (producto.precio * producto.cantidad)}"/>
-        </c:forEach>
+        <c:set var="total" value="${sessionScope.carrito.totalPrice}" scope="session" />
+        <c:out value="${total}" />
         <h2>$<c:out value="${total}" /></h2>
         <form method="post" action="login.jsp">
             <input type="submit" value="Confirmar Compra" />

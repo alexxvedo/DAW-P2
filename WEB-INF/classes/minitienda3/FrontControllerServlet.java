@@ -2,6 +2,13 @@ package minitienda3;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import minitienda3.helpers.AgregarCarritoHelper;
+import minitienda3.helpers.EliminarItemHelper;
+import minitienda3.helpers.LoginHelper;
+import minitienda3.helpers.RegistrarUsuarioHelper;
+import minitienda3.helpers.VaciarCarritoHelper;
+
 import java.io.IOException;
 
 public class FrontControllerServlet extends HttpServlet {
@@ -33,7 +40,12 @@ public class FrontControllerServlet extends HttpServlet {
                 break;
 
             case "comprar":
-                resp.sendRedirect("verCaja.jsp");
+                Carrito carrito = (Carrito) req.getSession().getAttribute("carrito");
+                if(carrito == null || carrito.getItems().isEmpty())
+                    resp.sendRedirect("verCarrito.jsp");
+                else
+                    resp.sendRedirect("verCaja.jsp");
+                
                 break;
 
             case "login":

@@ -1,10 +1,13 @@
-package minitienda3;
+package minitienda3.helpers;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import minitienda3.Carrito;
+
 import java.io.IOException;
 
 public class VaciarCarritoHelper {
