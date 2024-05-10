@@ -85,7 +85,7 @@ public class RegistrarUsuarioHelper {
             pst.setDouble(2, importe_final);
             int result = pst.executeUpdate();
             if (result > 0) {
-                pst = con.prepareStatement("SELECT LAST_INSERT_ID()");
+                pst = con.prepareStatement("SELECT id, id_usuario, importe_final FROM pedidos WHERE id = LAST_INSERT_ID()");
                 ResultSet rs = pst.executeQuery();
                 if (rs.next()) {
                     newPedido = new Pedido();
