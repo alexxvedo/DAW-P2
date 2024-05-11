@@ -6,9 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import minitienda3.Carrito;
-import minitienda3.Pedido;
-import minitienda3.Usuario;
+import minitienda3.modelos.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -23,7 +21,7 @@ public class LoginHelper {
 
         Usuario usuario = null;
         try {
-            usuario = getUsuarioByEmailAndPassword(email, password);
+            usuario = ModeloBD.getUsuarioByEmailAndPassword(email, password);
             if(usuario == null) {
                 req.setAttribute("error", "Usuario o contraseña incorrectos");
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
@@ -43,7 +41,7 @@ public class LoginHelper {
             session.setAttribute("usuario", usuario);
 
             Carrito carrito = (Carrito) session.getAttribute("carrito");
-            Pedido pedido = new CrearPedidoHelper().crearPedido(usuario.getId(), carrito.getTotalPrice());
+            Pedido pedido = ModeloBD.crearPedido(usuario.getId(), carrito.getTotalPrice());
             System.out.println("Pedido creado: " + pedido.getTotal());
             session.setAttribute("pedido", pedido);
             carrito.vaciarCarrito();
@@ -56,24 +54,4 @@ public class LoginHelper {
             dispatcher.forward(req, resp);
         }
     }
-
-    private Usuario getUsuarioByEmailAndPassword(String email, String password) throws SQLException {
-        Connection con = ConexionBDHelper.getConnection();
-        String query = "SELECT * FROM usuarios WHERE correo_electronico = ? AND contrasena = ?";
-        PreparedStatement pst = con.prepareStatement(query);
-        pst.setString(1, email);
-        pst.setString(2, password);
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            Usuario usuario = new Usuario();
-            usuario.setId(rs.getInt(1));
-            usuario.setCorreo(rs.getString(2));
-            usuario.setContrasena(rs.getString(3));
-            usuario.setTarjetaTipo(rs.getString(4));
-            usuario.setTarjetaNumero(rs.getString(5));
-            return usuario;
-        }
-        return null;
-    }
-
 }

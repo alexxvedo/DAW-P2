@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import minitienda3.Carrito;
+import minitienda3.modelos.Carrito;
 
 import java.io.IOException;
 

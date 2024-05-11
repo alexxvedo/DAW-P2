@@ -1,4 +1,4 @@
-package minitienda3;
+package minitienda3.modelos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,20 @@ public class Carrito {
         return items;
     }
 
-    public void setItems(List<CD> items) {
-        this.items = items;
+    public void setItems(CD item) {
+        boolean found = false;
+        for (CD p : this.items) {
+            if (p.getNombre().equals(item.getNombre())) {
+                p.setCantidad(p.getCantidad() + item.getCantidad());
+                this.totalPrice = this.totalPrice + item.getCantidad() * p.getPrecio();
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            this.items.add(item);
+            this.totalPrice = this.totalPrice + item.getTotal();
+        }
     }
 
     public double getTotalPrice() {

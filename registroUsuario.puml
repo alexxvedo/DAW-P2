@@ -1,0 +1,37 @@
+@startuml
+
+actor User
+entity "registroUsuario.jsp" as RegistroUsuario
+entity "gracias.jsp" as gracias
+entity "FrontControllerServlet" as FrontController
+entity "RegistrarUsuarioHelper" as RegistrarUsuario
+entity "ModeloBD" as ModeloBD
+database "Base de Datos" as DB
+entity "Carrito" as Carrito
+entity "Pedido" as Pedido
+entity "Usuario" as Usuario
+
+User -> RegistroUsuario: Ingresa datos de usuario y tarjeta
+RegistroUsuario -> FrontController: Envía solicitud con acción "registrar"
+FrontController -> RegistrarUsuario: ejecutar(req, resp)
+
+RegistrarUsuario -> ModeloBD: registrarUsuario(email, password, tarjetaTipo, tarjetaNumero)
+ModeloBD -> DB: Inserta nuevo usuario
+DB -> ModeloBD: Retorna datos de Usuario
+ModeloBD -> Usuario: Crea objeto Usuario
+Usuario -> ModeloBD: Devuelve objeto Usuario
+ModeloBD -> RegistrarUsuario: Retorna datos de Usuario
+
+RegistrarUsuario -> ModeloBD: crearPedido(usuario.getId(), carrito.getTotalPrice())
+ModeloBD -> DB: Inserta nuevo pedido
+DB -> ModeloBD: Retorna datos de Pedido
+ModeloBD -> Pedido: Crea objeto Pedido
+Pedido -> ModeloBD: Devuelve objeto Pedido
+ModeloBD -> RegistrarUsuario: Retorna datos de Pedido
+
+Carrito <- RegistrarUsuario: vaciarCarrito()
+
+gracias <- RegistrarUsuario: Redirige a gracias.jsp
+User <- gracias: Muestra mensaje de confirmación de compra
+
+@enduml

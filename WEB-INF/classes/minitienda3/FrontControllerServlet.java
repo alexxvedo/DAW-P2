@@ -8,6 +8,7 @@ import minitienda3.helpers.EliminarItemHelper;
 import minitienda3.helpers.LoginHelper;
 import minitienda3.helpers.RegistrarUsuarioHelper;
 import minitienda3.helpers.VaciarCarritoHelper;
+import minitienda3.modelos.Carrito;
 
 import java.io.IOException;
 
@@ -45,7 +46,6 @@ public class FrontControllerServlet extends HttpServlet {
                     resp.sendRedirect("verCarrito.jsp");
                 else
                     resp.sendRedirect("verCaja.jsp");
-                
                 break;
 
             case "login":
@@ -57,7 +57,7 @@ public class FrontControllerServlet extends HttpServlet {
                 break;
 
             default:
-                resp.sendRedirect("error.jsp"); //TODO: implementar error.jsp
+                resp.sendRedirect("index.html");
                 break;
         }
     }

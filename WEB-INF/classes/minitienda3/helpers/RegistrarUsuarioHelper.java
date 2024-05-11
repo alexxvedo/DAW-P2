@@ -6,9 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import minitienda3.Carrito;
-import minitienda3.Pedido;
-import minitienda3.Usuario;
+import minitienda3.modelos.Carrito;
+import minitienda3.modelos.ModeloBD;
+import minitienda3.modelos.Pedido;
+import minitienda3.modelos.Usuario;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -26,7 +27,7 @@ public class RegistrarUsuarioHelper {
 
         Usuario usuario = null;
         try {
-            usuario = registrarUsuario(email, password, tarjetaTipo, tarjetaNumero);
+            usuario = ModeloBD.registrarUsuario(email, password, tarjetaTipo, tarjetaNumero);
         }catch (SQLIntegrityConstraintViolationException e) {
             e.printStackTrace();
             req.setAttribute("error", "Ya existe un usuario con ese correo electrónico");
@@ -46,7 +47,7 @@ public class RegistrarUsuarioHelper {
             session.setAttribute("usuario", usuario);
 
             Carrito carrito = (Carrito) session.getAttribute("carrito");
-            Pedido pedido = new CrearPedidoHelper().crearPedido(usuario.getId(), carrito.getTotalPrice());
+            Pedido pedido = ModeloBD.crearPedido(usuario.getId(), carrito.getTotalPrice());
 
             session.setAttribute("pedido", pedido);
             carrito.vaciarCarrito();
@@ -58,32 +59,6 @@ public class RegistrarUsuarioHelper {
             RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
             dispatcher.forward(req, resp);
         }
-    }
-
-    private Usuario registrarUsuario(String email, String password, String tarjetaTipo, String tarjetaNumero) throws SQLException {
-        Connection con = ConexionBDHelper.getConnection();
-        String query = "INSERT INTO usuarios(correo_electronico, contrasena, tipo_tarjeta, numero_tarjeta) VALUES (?, ?, ?, ?)";
-        PreparedStatement pst = con.prepareStatement(query);
-        pst.setString(1, email);
-        pst.setString(2, password);
-        pst.setString(3, tarjetaTipo);
-        pst.setString(4, tarjetaNumero);
-        int result = pst.executeUpdate();
-
-        if (result > 0) {
-            pst = con.prepareStatement("SELECT LAST_INSERT_ID()");
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                Usuario usuario = new Usuario();
-                usuario.setId(rs.getInt(1));
-                usuario.setCorreo(email);
-                usuario.setContrasena(password);
-                usuario.setTarjetaTipo(tarjetaTipo);
-                usuario.setTarjetaNumero(tarjetaNumero);
-                return usuario;
-            }
-        }
-        return null;
     }
 
 }

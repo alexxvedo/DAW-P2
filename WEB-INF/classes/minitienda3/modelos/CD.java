@@ -1,4 +1,4 @@
-package minitienda3;
+package minitienda3.modelos;
 
 public class CD {
 

@@ -1,0 +1,54 @@
+digraph MiniTienda3 {
+    rankdir=BT;
+
+    node [shape=record];
+
+    FrontControllerServlet [label="{FrontControllerServlet | + doGet(HttpServletRequest, HttpServletResponse)\l+ doPost(HttpServletRequest, HttpServletResponse)\l- processRequest(HttpServletRequest, HttpServletResponse)\l}"];
+
+    AgregarCarritoHelper [label="{AgregarCarritoHelper | + ejecutar(HttpServletRequest, HttpServletResponse)\l}"];
+    AgregarCarritoHelper -> Carrito [label="1"];
+    AgregarCarritoHelper -> "verCarrito.jsp" [label="1"];
+
+    EliminarItemHelper [label="{EliminarItemHelper | + ejecutar(HttpServletRequest, HttpServletResponse)\l}"];
+    EliminarItemHelper -> Carrito [label="1"];
+    EliminarItemHelper -> "verCarrito.jsp" [label="1"];
+
+    LoginHelper [label="{LoginHelper | + ejecutar(HttpServletRequest, HttpServletResponse)\l}"];
+    LoginHelper -> Usuario [label="1"];
+    LoginHelper -> Carrito [label="1"];
+    LoginHelper -> Pedido [label="1"];
+    LoginHelper -> "gracias.jsp" [label="1"];
+    LoginHelper -> "login.jsp" [label="1"];
+
+    RegistrarUsuarioHelper [label="{RegistrarUsuarioHelper | + ejecutar(HttpServletRequest, HttpServletResponse)\l}"];
+    RegistrarUsuarioHelper -> Usuario [label="1"];
+    RegistrarUsuarioHelper -> Carrito [label="1"];
+    RegistrarUsuarioHelper -> Pedido [label="1"];
+    RegistrarUsuarioHelper -> "gracias.jsp" [label="1"];
+    RegistrarUsuarioHelper -> "registroUsuario.jsp" [label="1"];
+
+    VaciarCarritoHelper [label="{VaciarCarritoHelper | + ejecutar(HttpServletRequest, HttpServletResponse)\l}"];
+    VaciarCarritoHelper -> Carrito [label="1"];
+    VaciarCarritoHelper -> "verCarrito.jsp" [label="1"];
+
+    Carrito [label="{Carrito | - items: List\<CD\>\l- totalPrice: double\l| + getItems(): List\<CD\>\l+ setItems(CD): void\l+ getTotalPrice(): double\l+ setTotalPrice(double): void\l+ vaciarCarrito(): void\l}"];
+
+    CD [label="{CD | - nombre: String\l- cantidad: Integer\l- precio: Float\l- total: Float\l| + getCantidad(): int\l+ getNombre(): String\l+ getPrecio(): Float\l+ getTotal(): Float\l+ setCantidad(int)\l+ setNombre(String)\l+ setPrecio(Float)\l}"];
+
+    ModeloBD [label="{ModeloBD | - URL: String\l- USERNAME: String\l- PASSWORD: String\l| + registrarUsuario(String, String, String, String): Usuario\l+ getUsuarioByEmailAndPassword(String, String): Usuario\l+ crearPedido(Integer, double): Pedido\l}"];
+
+    Pedido [label="{Pedido | - id: String\l- id_usuario: String\l- total: Float\l| + getId(): String\l+ getId_usuario(): String\l+ getTotal(): Float\l+ setId(String)\l+ setId_usuario(String)\l+ setTotal(Float)\l}"];
+
+    Usuario [label="{Usuario | - id: Integer\l- correo: String\l- contrasena: String\l- tarjetaTipo: String\l- tarjetaNumero: String\l| + getId(): Integer\l+ getCorreo(): String\l+ getContrasena(): String\l+ getTarjetaTipo(): String\l+ getTarjetaNumero(): String\l+ setId(Integer)\l+ setCorreo(String)\l+ setContrasena(String)\l+ setTarjetaTipo(String)\l+ setTarjetaNumero(String)\l}"];
+
+    FrontControllerServlet -> AgregarCarritoHelper [label="1"];
+    FrontControllerServlet -> EliminarItemHelper [label="1"];
+    FrontControllerServlet -> LoginHelper [label="1"];
+    FrontControllerServlet -> RegistrarUsuarioHelper [label="1"];
+    FrontControllerServlet -> VaciarCarritoHelper [label="1"];
+
+    Carrito -> CD [label="0..*"];
+    ModeloBD -> Usuario [label="1"];
+    ModeloBD -> Pedido [label="1"];
+    Usuario -> Pedido [label="0..*"];
+}

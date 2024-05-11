@@ -1,0 +1,18 @@
+digraph modelo_minitienda {
+    graph [fontname = "Helvetica"]
+    node [fontname = "Helvetica", shape=record]
+    edge [fontname = "Helvetica"]
+
+    CD [label="{CD|- nombre: String\l- cantidad: Integer\l- precio: Float\l- total: Float\l|+ getCantidad(): int\l+ getNombre(): String\l+ getPrecio(): Float\l+ getTotal(): Float\l+ setCantidad(cantidad: int): void\l+ setNombre(nombre: String): void\l+ setPrecio(precio: Float): void\l}"]
+
+    Carrito [label="{Carrito|- items: List<CD>\l- totalPrice: double\l|+ getItems(): List<CD>\l+ setItems(item: CD): void\l+ getTotalPrice(): double\l+ setTotalPrice(totalPrice: double): void\l+ vaciarCarrito(): void\l}"]
+    Carrito -> CD [label="contiene"]
+
+    Usuario [label="{Usuario|- id: Integer\l- correo: String\l- contrasena: String\l- tarjetaTipo: String\l- tarjetaNumero: String\l|+ getId(): Integer\l+ getCorreo(): String\l+ getContrasena(): String\l+ getTarjetaTipo(): String\l+ getTarjetaNumero(): String\l+ setId(id: Integer): void\l+ setCorreo(correo: String): void\l+ setContrasena(contrasena: String): void\l+ setTarjetaTipo(tarjetaTipo: String): void\l+ setTarjetaNumero(tarjetaNumero: String): void\l}"]
+
+    Pedido [label="{Pedido|- id: String\l- id_usuario: String\l- total: Float\l|+ getId(): String\l+ getId_usuario(): String\l+ getTotal(): Float\l+ setId(id: String): void\l+ setId_usuario(id_usuario: String): void\l+ setTotal(total: Float): void\l}"]
+    Pedido -> Usuario [label="asociado a", dir=back]
+
+    ModeloBD [label="{ModeloBD|- URL: String (static)\l- USERNAME: String (static)\l- PASSWORD: String (static)\l|+ registrarUsuario(email: String, password: String, tarjetaTipo: String, tarjetaNumero: String): Usuario (static)\l+ getUsuarioByEmailAndPassword(email: String, password: String): Usuario (static)\l+ crearPedido(id_usuario: Integer, importe_final: double): Pedido (static)\l}"]
+}
+

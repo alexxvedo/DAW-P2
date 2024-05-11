@@ -1,0 +1,20 @@
+@startuml
+
+actor Usuario
+entity "index.html" as Index
+entity "FrontControllerServlet" as FrontController
+entity "AgregarCarritoHelper" as AgregarCarrito
+entity "Carrito" as Carrito
+entity "CD" as CD
+entity "verCarrito.jsp" as VerCarrito
+
+Usuario -> Index: Selecciona un CD y cantidad
+Index -> FrontController: Envía solicitud con acción "Agregar"
+FrontController -> AgregarCarrito: ejecutar(req, resp)
+AgregarCarrito -> CD: Crea nuevo CD con datos del formulario
+AgregarCarrito -> Carrito: setItems(nuevo CD)
+Carrito -> Carrito: Verifica y actualiza productos
+VerCarrito <- AgregarCarrito: Redirige a verCarrito.jsp
+Usuario <- VerCarrito: Muestra carrito de compras
+
+@enduml

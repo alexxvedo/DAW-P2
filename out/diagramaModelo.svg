@@ -1,0 +1,116 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="594pt" height="514pt" viewBox="0.00 0.00 593.92 514.00">
+<g id="graph0" class="graph" transform="translate(4,510) scale(1)" data-name="MiniTienda3">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-510 589.92,-510 589.92,4 -4,4" style=""/>
+<!-- Carrito -->
+<g id="node1" class="node" pointer-events="visible" data-name="Carrito">
+
+<polygon fill="#f2f2f2" stroke="black" points="0,-347.1 0,-505.5 180.96,-505.5 180.96,-347.1 0,-347.1" style=""/>
+<text text-anchor="middle" x="90.48" y="-488.9" font-family="Times,serif" font-size="14.00" style="">Carrito</text>
+<polyline fill="none" stroke="black" points="0,-480.7 180.96,-480.7" style=""/>
+<text text-anchor="start" x="8" y="-464.1" font-family="Times,serif" font-size="14.00" style="">- items: List&lt;CD&gt;</text>
+<text text-anchor="start" x="8" y="-447.3" font-family="Times,serif" font-size="14.00" style="">- totalPrice: double</text>
+<polyline fill="none" stroke="black" points="0,-439.1 180.96,-439.1" style=""/>
+<text text-anchor="start" x="8" y="-422.5" font-family="Times,serif" font-size="14.00" style="">+ getItems(): List&lt;CD&gt;</text>
+<text text-anchor="start" x="8" y="-405.7" font-family="Times,serif" font-size="14.00" style="">+ setItems(CD): void</text>
+<text text-anchor="start" x="8" y="-388.9" font-family="Times,serif" font-size="14.00" style="">+ getTotalPrice(): double</text>
+<text text-anchor="start" x="8" y="-372.1" font-family="Times,serif" font-size="14.00" style="">+ setTotalPrice(double): void</text>
+<text text-anchor="start" x="8" y="-355.3" font-family="Times,serif" font-size="14.00" style="">+ vaciarCarrito(): void</text>
+</g>
+<!-- CD -->
+<g id="node2" class="node" pointer-events="visible" data-name="CD">
+
+<polygon fill="#f2f2f2" stroke="black" points="19.82,-34.1 19.82,-259.7 161.14,-259.7 161.14,-34.1 19.82,-34.1" style=""/>
+<text text-anchor="middle" x="90.48" y="-243.1" font-family="Times,serif" font-size="14.00" style="">CD</text>
+<polyline fill="none" stroke="black" points="19.82,-234.9 161.14,-234.9" style=""/>
+<text text-anchor="start" x="27.82" y="-218.3" font-family="Times,serif" font-size="14.00" style="">- nombre: String</text>
+<text text-anchor="start" x="27.82" y="-201.5" font-family="Times,serif" font-size="14.00" style="">- cantidad: Integer</text>
+<text text-anchor="start" x="27.82" y="-184.7" font-family="Times,serif" font-size="14.00" style="">- precio: Float</text>
+<text text-anchor="start" x="27.82" y="-167.9" font-family="Times,serif" font-size="14.00" style="">- total: Float</text>
+<polyline fill="none" stroke="black" points="19.82,-159.7 161.14,-159.7" style=""/>
+<text text-anchor="start" x="27.82" y="-143.1" font-family="Times,serif" font-size="14.00" style="">+ getCantidad(): int</text>
+<text text-anchor="start" x="27.82" y="-126.3" font-family="Times,serif" font-size="14.00" style="">+ getNombre(): String</text>
+<text text-anchor="start" x="27.82" y="-109.5" font-family="Times,serif" font-size="14.00" style="">+ getPrecio(): Float</text>
+<text text-anchor="start" x="27.82" y="-92.7" font-family="Times,serif" font-size="14.00" style="">+ getTotal(): Float</text>
+<text text-anchor="start" x="27.82" y="-75.9" font-family="Times,serif" font-size="14.00" style="">+ setCantidad(int)</text>
+<text text-anchor="start" x="27.82" y="-59.1" font-family="Times,serif" font-size="14.00" style="">+ setNombre(String)</text>
+<text text-anchor="start" x="27.82" y="-42.3" font-family="Times,serif" font-size="14.00" style="">+ setPrecio(Float)</text>
+</g>
+<!-- Carrito&#45;&gt;CD -->
+<g id="edge1" class="edge" data-name="Carrito-&gt;CD">
+
+<path fill="none" stroke="black" d="M90.48,-347.29C90.48,-323.67 90.48,-297.12 90.48,-271.28" style=""/>
+<polygon fill="none" stroke="black" points="90.48,-271.48 86.48,-265.48 90.48,-259.48 94.48,-265.48 90.48,-271.48" style=""/>
+<text text-anchor="middle" x="100.98" y="-316" font-family="Times,serif" font-size="14.00" style="">0..*</text>
+</g>
+<!-- ModeloBD -->
+<g id="node3" class="node" pointer-events="visible" data-name="ModeloBD">
+
+<polygon fill="#f2f2f2" stroke="black" points="233.05,-355.5 233.05,-497.1 585.92,-497.1 585.92,-355.5 233.05,-355.5" style=""/>
+<text text-anchor="middle" x="409.48" y="-480.5" font-family="Times,serif" font-size="14.00" style="">ModeloBD</text>
+<polyline fill="none" stroke="black" points="233.05,-472.3 585.92,-472.3" style=""/>
+<text text-anchor="start" x="241.05" y="-455.7" font-family="Times,serif" font-size="14.00" style="">- URL: String</text>
+<text text-anchor="start" x="241.05" y="-438.9" font-family="Times,serif" font-size="14.00" style="">- USERNAME: String</text>
+<text text-anchor="start" x="241.05" y="-422.1" font-family="Times,serif" font-size="14.00" style="">- PASSWORD: String</text>
+<polyline fill="none" stroke="black" points="233.05,-413.9 585.92,-413.9" style=""/>
+<text text-anchor="start" x="241.05" y="-397.3" font-family="Times,serif" font-size="14.00" style="">+ registrarUsuario(String, String, String, String): Usuario</text>
+<text text-anchor="start" x="241.05" y="-380.5" font-family="Times,serif" font-size="14.00" style="">+ getUsuarioByEmailAndPassword(String, String): Usuario</text>
+<text text-anchor="start" x="241.05" y="-363.7" font-family="Times,serif" font-size="14.00" style="">+ crearPedido(Integer, double): Pedido</text>
+</g>
+<!-- Pedido -->
+<g id="node4" class="node" pointer-events="visible" data-name="Pedido">
+
+<polygon fill="#f2f2f2" stroke="black" points="178.82,-50.9 178.82,-242.9 334.14,-242.9 334.14,-50.9 178.82,-50.9" style=""/>
+<text text-anchor="middle" x="256.48" y="-226.3" font-family="Times,serif" font-size="14.00" style="">Pedido</text>
+<polyline fill="none" stroke="black" points="178.82,-218.1 334.14,-218.1" style=""/>
+<text text-anchor="start" x="186.82" y="-201.5" font-family="Times,serif" font-size="14.00" style="">- id: String</text>
+<text text-anchor="start" x="186.82" y="-184.7" font-family="Times,serif" font-size="14.00" style="">- id_usuario: String</text>
+<text text-anchor="start" x="186.82" y="-167.9" font-family="Times,serif" font-size="14.00" style="">- total: Float</text>
+<polyline fill="none" stroke="black" points="178.82,-159.7 334.14,-159.7" style=""/>
+<text text-anchor="start" x="186.82" y="-143.1" font-family="Times,serif" font-size="14.00" style="">+ getId(): String</text>
+<text text-anchor="start" x="186.82" y="-126.3" font-family="Times,serif" font-size="14.00" style="">+ getId_usuario(): String</text>
+<text text-anchor="start" x="186.82" y="-109.5" font-family="Times,serif" font-size="14.00" style="">+ getTotal(): Float</text>
+<text text-anchor="start" x="186.82" y="-92.7" font-family="Times,serif" font-size="14.00" style="">+ setId(String)</text>
+<text text-anchor="start" x="186.82" y="-75.9" font-family="Times,serif" font-size="14.00" style="">+ setId_usuario(String)</text>
+<text text-anchor="start" x="186.82" y="-59.1" font-family="Times,serif" font-size="14.00" style="">+ setTotal(Float)</text>
+</g>
+<!-- ModeloBD&#45;&gt;Pedido -->
+<g id="edge3" class="edge" data-name="ModeloBD-&gt;Pedido">
+
+<path fill="none" stroke="black" d="M371.07,-355.66C353.62,-324.01 332.61,-285.92 313.38,-251.05" style=""/>
+<polygon fill="black" stroke="black" points="308.79,-242.73 317.56,-249.31 311.2,-247.11 313.62,-251.49 313.62,-251.49 313.62,-251.49 311.2,-247.11 309.68,-253.66 308.79,-242.73 308.79,-242.73" style=""/>
+<text text-anchor="middle" x="368.13" y="-316" font-family="Times,serif" font-size="14.00" style="">crea</text>
+</g>
+<!-- Usuario -->
+<g id="node5" class="node" pointer-events="visible" data-name="Usuario">
+
+<polygon fill="#f2f2f2" stroke="black" points="352.01,-0.5 352.01,-293.3 532.96,-293.3 532.96,-0.5 352.01,-0.5" style=""/>
+<text text-anchor="middle" x="442.48" y="-276.7" font-family="Times,serif" font-size="14.00" style="">Usuario</text>
+<polyline fill="none" stroke="black" points="352.01,-268.5 532.96,-268.5" style=""/>
+<text text-anchor="start" x="360.01" y="-251.9" font-family="Times,serif" font-size="14.00" style="">- id: Integer</text>
+<text text-anchor="start" x="360.01" y="-235.1" font-family="Times,serif" font-size="14.00" style="">- correo: String</text>
+<text text-anchor="start" x="360.01" y="-218.3" font-family="Times,serif" font-size="14.00" style="">- contrasena: String</text>
+<text text-anchor="start" x="360.01" y="-201.5" font-family="Times,serif" font-size="14.00" style="">- tarjetaTipo: String</text>
+<text text-anchor="start" x="360.01" y="-184.7" font-family="Times,serif" font-size="14.00" style="">- tarjetaNumero: String</text>
+<polyline fill="none" stroke="black" points="352.01,-176.5 532.96,-176.5" style=""/>
+<text text-anchor="start" x="360.01" y="-159.9" font-family="Times,serif" font-size="14.00" style="">+ getId(): Integer</text>
+<text text-anchor="start" x="360.01" y="-143.1" font-family="Times,serif" font-size="14.00" style="">+ getCorreo(): String</text>
+<text text-anchor="start" x="360.01" y="-126.3" font-family="Times,serif" font-size="14.00" style="">+ getContrasena(): String</text>
+<text text-anchor="start" x="360.01" y="-109.5" font-family="Times,serif" font-size="14.00" style="">+ getTarjetaTipo(): String</text>
+<text text-anchor="start" x="360.01" y="-92.7" font-family="Times,serif" font-size="14.00" style="">+ getTarjetaNumero(): String</text>
+<text text-anchor="start" x="360.01" y="-75.9" font-family="Times,serif" font-size="14.00" style="">+ setId(Integer)</text>
+<text text-anchor="start" x="360.01" y="-59.1" font-family="Times,serif" font-size="14.00" style="">+ setCorreo(String)</text>
+<text text-anchor="start" x="360.01" y="-42.3" font-family="Times,serif" font-size="14.00" style="">+ setContrasena(String)</text>
+<text text-anchor="start" x="360.01" y="-25.5" font-family="Times,serif" font-size="14.00" style="">+ setTarjetaTipo(String)</text>
+<text text-anchor="start" x="360.01" y="-8.7" font-family="Times,serif" font-size="14.00" style="">+ setTarjetaNumero(String)</text>
+</g>
+<!-- ModeloBD&#45;&gt;Usuario -->
+<g id="edge2" class="edge" data-name="ModeloBD-&gt;Usuario">
+
+<path fill="none" stroke="black" d="M417.77,-355.66C419.7,-339.4 421.84,-321.45 424.02,-303.1" style=""/>
+<polygon fill="black" stroke="black" points="425.2,-293.18 428.49,-303.64 424.61,-298.14 424.02,-303.11 424.02,-303.11 424.02,-303.11 424.61,-298.14 419.55,-302.57 425.2,-293.18 425.2,-293.18" style=""/>
+<text text-anchor="middle" x="433.13" y="-316" font-family="Times,serif" font-size="14.00" style="">crea</text>
+</g>
+</g>
+</svg>

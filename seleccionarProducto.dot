@@ -1,0 +1,12 @@
+digraph seleccionar_producto {
+    rankdir=LR;
+    node [shape=record];
+    Usuario -> FrontControllerServlet [label="Solicita agregar producto"];
+    FrontControllerServlet -> AgregarCarritoHelper [label="ejecutar(req, resp)"];
+    AgregarCarritoHelper -> Carrito [label="getItems()"];
+    Carrito -> Carrito [label="verifica y actualiza productos"];
+    AgregarCarritoHelper -> Carrito [label="setItems(nuevo CD)"];
+    Carrito -> CD [label="crea y configura nuevo CD"];
+    AgregarCarritoHelper -> FrontControllerServlet [label="Redirecciona a verCarrito.jsp"];
+    FrontControllerServlet -> Usuario [label="Muestra carrito actualizado (verCarrito.jsp)"];
+}

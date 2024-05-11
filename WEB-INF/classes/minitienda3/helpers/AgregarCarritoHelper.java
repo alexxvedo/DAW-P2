@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import minitienda3.CD;
-import minitienda3.Carrito;
+import minitienda3.modelos.CD;
+import minitienda3.modelos.Carrito;
 
 import java.io.IOException;
 
@@ -51,19 +51,7 @@ public class AgregarCarritoHelper {
         producto.setCantidad(cantidad);
         producto.setPrecio(precio);
 
-        boolean found = false;
-        for (CD p : carrito.getItems()) {
-            if (p.getNombre().equals(producto.getNombre())) {
-                p.setCantidad(p.getCantidad() + cantidad);
-                carrito.setTotalPrice(carrito.getTotalPrice() + cantidad * p.getPrecio());
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            carrito.getItems().add(producto);
-            carrito.setTotalPrice(carrito.getTotalPrice() + producto.getTotal());
-        }
+        carrito.setItems(producto);
 
 
         req.setAttribute("carrito", carrito);
